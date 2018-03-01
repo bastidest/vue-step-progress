@@ -1,7 +1,7 @@
 #   Vue Step Progress Bar
 
 ##  Demo
-// TODO
+![demo gif](https://user-images.githubusercontent.com/1242917/36874916-15c773c2-1dae-11e8-8780-595903b79018.gif)
 
 ##  Installation
 
