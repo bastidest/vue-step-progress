@@ -54,7 +54,7 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .step-progress-wrapper
   width: 90%
   margin: 0 auto

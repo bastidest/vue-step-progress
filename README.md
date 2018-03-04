@@ -54,6 +54,7 @@ A simple Number prop that defines the index of the active step. Example:
 To style the component override the css classes.
 
 // TODO: find better solutions
+// TODO: slot as icon
 
 
 ## Changelog
