@@ -2,7 +2,7 @@
 .step-progress-wrapper()
   .step-progress-wrapper-before
   .step-progress-bar
-    .step-progress-step(v-for='(step, index) in steps' :class='{active: index < currentStep, valid: index < currentStep}')
+    .step-progress-step(v-for='(step, index) in steps' :class='{active: index === currentStep, valid: index < currentStep}')
       span {{ index + 1 }}
       .step-progress-step-icon.fa.fa-check
       .step-progress-step-label {{ step }}
@@ -109,7 +109,7 @@ export default {
       color: red
       transform: translate3d(0,0,0) scale(2) perspective(1000px) 
     .step-progress-step-label
-      color: red !important
+      color: red
   &:after
     content: ""
     position: absolute
