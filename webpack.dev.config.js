@@ -1,12 +1,64 @@
-var config = require('./webpack.base.config');
-var path = require('path');
+const path = require('path');
 
-config.mode = 'development';
-config.entry = './dev/index.js';
-config.output = {
-  path: path.resolve('dist') + '/',
-  publicPath: 'dist',
-  filename: 'bundle.js'
+const { VueLoaderPlugin } = require('vue-loader');
+
+module.exports = {
+  mode: 'development',
+  entry: './dev/index.js',
+  output: {
+    path: path.resolve('dist') + '/',
+    publicPath: 'dist',
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          babelrc: true
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.sass$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              indentedSyntax: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.pug$/,
+        loader: 'pug-plain-loader'
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
+    ],
+  },
+  resolve: {
+    modules: [
+      'node_modules',
+      'vue'
+    ]
+  },
+  plugins: [
+    new VueLoaderPlugin(),
+  ],
+  devtool: 'source-map',
+  target: 'web'
 };
-
-module.exports = config;
