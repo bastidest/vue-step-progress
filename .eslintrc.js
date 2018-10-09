@@ -1,39 +1,53 @@
 module.exports = {
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "sourceType": "module",
+    "allowImportExportEverywhere": false
+  },
   "plugins": [
-      "vue"
+    "vue",
+    "import"
   ],
   "extends": [
-      "eslint:recommended",
-      "plugin:vue/recommended"
+    "eslint:recommended",
+    "plugin:vue/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
   ],
   "env": {
-      "browser": true,
-      "commonjs": true,
-      "es6": true,
-      "node": true
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
   },
   "parserOptions": {
-      "ecmaFeatures": {
-          "jsx": true
-      },
-      "sourceType": "module"
+    "ecmaVersion": 2017,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
   },
   "rules": {
-      "indent": [
-          "error",
-          2
-      ],
-      "linebreak-style": [
-          "error",
-          "unix"
-      ],
-      "quotes": [
-          "error",
-          "single"
-      ],
-      "semi": [
-          "error",
-          "always"
-      ]
+    "no-new": 0,
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-console": [
+      "warn"
+    ]
   }
 };
