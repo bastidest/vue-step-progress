@@ -1,7 +1,7 @@
 <template lang="pug">
 .app
   .row
-    step-progress(:steps='steps' :current-step='currentStep')
+    step-progress(:steps='steps' :current-step='currentStep', icon-class='fa fa-check')
   .buttons
     button(@click='currentStep--') <
     button(@click='currentStep++') >
@@ -25,14 +25,6 @@ export default {
       ],
       currentStep: 0
     };
-  },
-  computed: {
-  },
-  watch: {
-  },
-  mounted() {
-  },
-  methods: {
   }
 };
 </script>

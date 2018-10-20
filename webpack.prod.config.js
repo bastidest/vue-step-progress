@@ -73,8 +73,9 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
+    new MiniCssExtractPlugin(),
     new OptimizeCssAssetsPlugin({
-      assetNameRegExp: /\.optimize\.css$/g,
+      // assetNameRegExp: /\.optimize\.css$/g,
       cssProcessor: require('cssnano'),
       cssProcessorPluginOptions: {
         preset: ['default', { discardComments: { removeAll: true } }],
