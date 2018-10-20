@@ -11,6 +11,7 @@ npm install --save vue-step-progress
 ```
 
 ## Usage
+⚠️ The default settings use Font Awesome for the checkmark icon. You can change the css icon class by using the 'icon-class' prop.
 
 Add the Library import in the components you want to use the progress bar in:
 ```javascript
@@ -27,7 +28,7 @@ import StepProgress from 'vue-step-progress';
 Put the `step-progress` element into your HTML where you want the Component to appear and pass the `steps` Array Prop and the `current-step` Number prop.
 ```html
 <div>
-  <step-progress :steps="mySteps" :current-step="currentStep"></step-progress>
+  <step-progress :steps="mySteps" :current-step="currentStep" icon-class="fa fa-check"></step-progress>
 </div>
 ```
 
@@ -48,15 +49,17 @@ A simple Number prop that defines the index of the active step. Example:
 2
 ```
 
+#### `icon-class`
 
-## Custom Styling
+_Optional_
 
-To style the component override the css classes.
-
-// TODO: find better solutions
-// TODO: slot as icon
+The css class of the checkmark icon. Default:
+```
+fa fa-check
+```
 
 
 ## Changelog
 
 - 0.1.0: Initial Release
+- 0.2.0: ⚠️BREAKING⚠️ - Rename and fix css classes

@@ -1,6 +1,6 @@
 {
   "name": "vue-step-progress",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": "bastidest/vue-step-progress",
   "description": "A Vue component to display a progressbar with labels",
   "main": "./dist/vue-step-progress.min.js",
