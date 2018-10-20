@@ -17,6 +17,9 @@ Add the Library import in the components you want to use the progress bar in:
 ```javascript
 import StepProgress from 'vue-step-progress';
 
+// import the css (OPTIONAL - you can provide your own design)
+import 'vue-step-progress/dist/main.css';
+
 // ...
 // register the component in your Vue instance
   components: {
