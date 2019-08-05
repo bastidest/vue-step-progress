@@ -11,7 +11,8 @@ npm install --save vue-step-progress
 ```
 
 ## Usage
-⚠️ The default settings use Font Awesome for the checkmark icon. You can change the css icon class by using the 'icon-class' prop.
+⚠️ The default settings use Font Awesome for the checkmark icon. You can change the css icon class by using the
+'icon-class' prop.
 
 Add the Library import in the components you want to use the progress bar in:
 ```javascript
@@ -28,7 +29,8 @@ import 'vue-step-progress/dist/main.css';
 // ...
 ```
 
-Put the `step-progress` element into your HTML where you want the Component to appear and pass the `steps` Array Prop and the `current-step` Number prop.
+Put the `step-progress` element into your HTML where you want the Component to appear and pass the `steps` Array Prop
+and the `current-step` Number prop.
 ```html
 <div>
   <step-progress :steps="mySteps" :current-step="currentStep" icon-class="fa fa-check"></step-progress>
@@ -61,8 +63,25 @@ The css class of the checkmark icon. Default:
 fa fa-check
 ```
 
+## Development
+To setup the local development environment it is recommended to use docker. *Note*: this will override your current
+`npm` and `node` commands.
+```bash
+source source.sh
+```
+Install all development dependencies:
+```bash
+npm i
+```
 
-## Changelog
+Start the development server
+```bash
+npm run dev
+```
 
-- 0.1.0: Initial Release
-- 0.2.0: ⚠️BREAKING⚠️ - Rename and fix css classes
+Build the dist files after changes
+```bash
+npm run build
+```
+
+Document your changes in the "Unreleased" section in `CHANGELOG.MD`.
