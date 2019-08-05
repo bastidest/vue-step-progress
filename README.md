@@ -85,3 +85,14 @@ npm run build
 ```
 
 Document your changes in the "Unreleased" section in `CHANGELOG.MD`.
+
+## Publishing
+Create a the `.npmrc` file:
+```
+//registry.npmjs.org/:_authToken=<token>
+```
+
+Run
+```
+npm publish
+```
