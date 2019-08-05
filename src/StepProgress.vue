@@ -1,12 +1,32 @@
 <template lang="pug">
 .step-progress__wrapper
-  .step-progress__wrapper-before(:style='{"background-color": passiveColor, height: lineThickness + "px" }')
+  .step-progress__wrapper-before(
+    :style='{"background-color": passiveColor, height: lineThickness + "px" }'
+  )
   .step-progress__bar
-    .step-progress__step(v-for='(step, index) in steps' :style='{"--activeColor" : activeColor, "--passiveColor" : passiveColor, "--activeBorder" : activeThickness + "px", "--passiveBorder" : passiveThickness + "px"}' :class='{"step-progress__step--active": index === currentStep, "step-progress__step--valid": index < currentStep}')
+    .step-progress__step(
+      v-for='(step, index) in steps'
+      :style=`{
+        "--activeColor" : activeColor,
+        "--passiveColor" : passiveColor,
+        "--activeBorder" : activeThickness + "px",
+        "--passiveBorder" : passiveThickness + "px"
+      }`
+      :class=`{
+        "step-progress__step--active": index === currentStep,
+        "step-progress__step--valid": index < currentStep
+      }`
+    )
       span {{ index + 1 }}
       .step-progress__step-icon(:class='iconClass')
       .step-progress__step-label {{ step }}
-  .step-progress__wrapper-after(:style='{transform: "scaleX(" + scaleX + ") translateY(-50%) perspective(1000px)", "background-color": activeColor, height: lineThickness + "px"}')
+  .step-progress__wrapper-after(
+    :style=`{
+      transform: "scaleX(" + scaleX + ") translateY(-50%) perspective(1000px)",
+      "background-color": activeColor,
+      height: lineThickness + "px"
+    }`
+  )
 
 </template>
 

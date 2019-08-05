@@ -1,14 +1,23 @@
 <template lang="pug">
 .app
   .row
-    step-progress(:steps='steps' :current-step='currentStep', icon-class='fa fa-check', :activeColor='activeColor' :passiveColor='passiveColor', :lineThickness='lineThickness', :activeThickness='activeThickness', :passiveThickness='passiveThickness')
+    step-progress(
+      :steps='steps'
+      :current-step='currentStep'
+      icon-class='fa fa-check'
+      :activeColor='activeColor'
+      :passiveColor='passiveColor'
+      :lineThickness='lineThickness'
+      :activeThickness='activeThickness'
+      :passiveThickness='passiveThickness'
+    )
   .buttons
     button(@click='currentStep--') < 
     button(@click='currentStep++') > 
     button(@click='activeColor = "purple" ') Set active color to purple 
     button(@click='passiveColor = "pink" ') Set passive color to pink 
     div(style='margin-top:10px')
-      label  Thicness:  
+      label  Thickness:  
       input(type = 'text' v-model='lineThickness')
     div(style='margin-top:10px')
       label  Active Step Thickness 
