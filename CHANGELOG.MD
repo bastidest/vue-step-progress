@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.1] - 2019-08-27
+### Security
+- Updated dependencies
+
 ## [0.3.0] - 2019-08-05
 ### Added
 - Custom CSS variables
