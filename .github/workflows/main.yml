@@ -10,3 +10,5 @@ jobs:
     steps:
     - name: checkout repo
       uses: actions/checkout@v1
+    - name: source source file
+      uses: actions/bin/sh@master
