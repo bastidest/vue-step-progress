@@ -10,7 +10,6 @@ jobs:
     steps:
     - name: checkout repo
       uses: actions/checkout@v1
-    - name: source source file
-      uses: actions/bin/sh@master
-      with:
-        args: [ 'cat source.sh' ]
+    - name: build using docker
+      run: |
+        source source.sh && npm run build
