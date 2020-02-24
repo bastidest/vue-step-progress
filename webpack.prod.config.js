@@ -1,4 +1,4 @@
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -13,16 +13,15 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      new UglifyJSPlugin({
-        cache: true,
+      new TerserPlugin({
+        cache: false,
         parallel: true,
-        sourceMap: true,
-        uglifyOptions: {
-          compress: {
-            drop_console: true,
-          }
+        sourceMap: false, // Must be set to true if using source-maps in production
+        terserOptions: {
+          // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+          drop_console: true,
         }
-      })
+      }),
     ]
   },
   module: {
@@ -50,7 +49,9 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              indentedSyntax: true
+              sassOptions: {
+                indentedSyntax: true
+              }
             }
           }
         ]
