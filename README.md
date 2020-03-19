@@ -63,6 +63,50 @@ The css class of the checkmark icon. Default:
 fa fa-check
 ```
 
+#### `active-color`
+
+_Optional_
+
+A String prop that defines the active step color. It is red by default. Example:
+```
+blue
+```
+
+#### `passive-color`
+
+_Optional_
+
+A String prop that defines the passive step color. It is gray by default. Example:
+```
+black
+```
+
+#### `active-thickness`
+
+_Optional_
+
+A Number prop that defines the active step thickness. It is 5 by default. Example:
+```
+10
+```
+
+#### `passive-thickness`
+
+_Optional_
+
+A Number prop that defines the passive step thickness. It is 5 by default. Example:
+```
+10
+```
+
+#### `line-thickness`
+
+_Optional_
+
+A Number prop that defines the line thickness. It is 12 by default. Example:
+```
+10
+```
 ## Development
 To setup the local development environment it is recommended to use docker. *Note*: this will override your current
 `npm` and `node` commands.
