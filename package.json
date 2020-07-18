@@ -1,6 +1,6 @@
 {
   "name": "vue-step-progress",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "repository": "bastidest/vue-step-progress",
   "description": "A Vue component to display a progressbar with labels",
   "main": "./dist/vue-step-progress.min.js",
@@ -13,6 +13,10 @@
   "dependencies": {
     "vue": "^2.6.11"
   },
+  "files": [
+    "/src",
+    "/dist"
+  ],
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
@@ -24,7 +28,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "express": "^4.17.1",
     "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
