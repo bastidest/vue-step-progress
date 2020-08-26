@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.5] - 2020-08-26
+### Security
+- Update vue dependency
+- Update dev dependencies
+
 ## [0.3.4] - 2020-07-18
 ### Security
 - Update dev dependencies
