@@ -2,6 +2,7 @@
 
 ##  Demo
 ![demo gif](./demo.gif)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbastidest%2Fvue-step-progress.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbastidest%2Fvue-step-progress?ref=badge_shield)
 
 ##  Installation
 
@@ -140,3 +141,7 @@ Run
 ```
 npm publish
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbastidest%2Fvue-step-progress.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbastidest%2Fvue-step-progress?ref=badge_large)
