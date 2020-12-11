@@ -15,10 +15,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          babelrc: true
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,

@@ -1,7 +1,7 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -14,14 +14,14 @@ module.exports = {
   optimization: {
     minimizer: [
       new TerserPlugin({
-        cache: false,
         parallel: true,
-        sourceMap: false, // Must be set to true if using source-maps in production
         terserOptions: {
-          // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-          drop_console: true,
+          compress: {
+            drop_console: true,
+          }
         }
       }),
+      new CssMinimizerPlugin(),
     ]
   },
   module: {
@@ -29,10 +29,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          babelrc: true
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
@@ -75,14 +72,6 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin(),
-    new OptimizeCssAssetsPlugin({
-      // assetNameRegExp: /\.optimize\.css$/g,
-      cssProcessor: require('cssnano'),
-      cssProcessorPluginOptions: {
-        preset: ['default', { discardComments: { removeAll: true } }],
-      },
-      canPrint: true
-    })
   ],
   devtool: 'source-map',
   target: 'web'

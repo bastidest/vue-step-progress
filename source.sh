@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NODE_VERSION="12.4.0"
+NODE_VERSION="15.4.0"
 export DOCKER_PWD=$(pwd)
 DOCKER_USER="$(id -u ${USER}):$(id -g ${USER})"
 DOCKER_PORTS="-p 127.0.0.1:3000:3000/tcp"
