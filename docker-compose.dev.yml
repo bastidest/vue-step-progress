@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  node:
+    image: node:${NODE_VERSION}
+    restart: 'never'
+    ports:
+      - '3000:3000'
+    volumes:
+      - ${DOCKER_PWD}:${DOCKER_PWD}
+    user: ${DOCKER_USER:?docker user must be provided}
+    working_dir: ${DOCKER_PWD:?docker pwd must be provided}

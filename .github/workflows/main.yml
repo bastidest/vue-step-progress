@@ -6,10 +6,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: checkout repo
       uses: actions/checkout@v1
     - name: build using docker
       run: |
-        source source.sh && npm i && npm run build
+        ./start.sh build

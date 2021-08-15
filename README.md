@@ -109,29 +109,21 @@ A Number prop that defines the line thickness. It is 12 by default. Example:
 10
 ```
 ## Development
-To setup the local development environment it is recommended to use docker. *Note*: this will override your current
-`npm` and `node` commands.
+It is recommended to develop and build inside a docker container. `start.sh` is a convenience script to help you with that.
+To start a development server, execute:
 ```bash
-source source.sh
+./start.sh dev-container
 ```
-Install all development dependencies:
-```bash
-npm i
-```
+This will setup a new docker container, install npm dependencies and start the development server under http://localhost:3000
 
-Start the development server
-```bash
-npm run dev
-```
+Document all user-visible changes in the "Unreleased" section in `CHANGELOG.MD`.
 
-Build the dist files after changes
+## Publishing (maintainer only)
+In order to rebuild the files for publishing a new version on npm, execute this command:
 ```bash
-npm run build
+./start.sh build
 ```
 
-Document your changes in the "Unreleased" section in `CHANGELOG.MD`.
-
-## Publishing
 Create a the `.npmrc` file:
 ```
 //registry.npmjs.org/:_authToken=<token>
