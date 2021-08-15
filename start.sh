@@ -62,6 +62,14 @@ function dev_container() {
 #>     _build_
 #>>    Do a production-ready build
 function build() {
+    if [ "$(id -u)" == "0" ] ; then
+        echo 'warning: trying to build as root user, falling back to user 1000'
+        export DOCKER_USER='1000:1000'
+    fi
+    if [ "$(id -u)" == "1001" ] && [ "$(id -g)" == "121" ] ; then
+        echo 'warning: trying to build as CI user, falling back to user 1000'
+        export DOCKER_USER='1000:1000'
+    fi
     docker-compose -f docker-compose.dev.yml run --rm node npm install
     docker-compose -f docker-compose.dev.yml run --rm node npm run build
 }
