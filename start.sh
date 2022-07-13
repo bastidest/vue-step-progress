@@ -30,7 +30,7 @@ case "${1-}" in
     "build" )
         build;;
     "release" )
-        if [[ -f .npmrc ]] ; then
+        if [[ ! -f .npmrc ]] ; then
             echo "no .npmrc file exists, please create it (//registry.npmjs.org/:_authToken=<token>)"
             exit 1
         fi
@@ -54,16 +54,13 @@ case "${1-}" in
         git commit -am"build(release): bump project version to ${VERSION}"
 
         echo "-- creating changelog"
-        git-conventional-commits changelog --release "$VERSION" --file CHANGELOG.md
+        git-conventional-commits changelog --release "$VERSION" --file CHANGELOG.MD
 
         echo "-- creating commit for changelog"
         git commit -am"doc(release): create ${VERSION} change log entry"
 
         echo "-- tagging version"
         git tag -a -m"build(release): ${VERSION}" "v${VERSION}"
-
-        echo "-- tagging docker image"
-        docker tag "${DOCKER_IMAGE_NAME}:latest" "${DOCKER_IMAGE_NAME}:${VERSION}"
 
         read -r -p "-- git push? [Y/n]" response
         response=${response,,} # tolower
