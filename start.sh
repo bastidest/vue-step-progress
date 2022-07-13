@@ -19,6 +19,7 @@ function build() {
         echo 'warning: trying to build as CI user, falling back to user 1000'
         export DOCKER_USER='1000:1000'
     fi
+    docker-compose -f docker-compose.dev.yml run --rm node rm -rf node_modules
     docker-compose -f docker-compose.dev.yml run --rm node npm install
     docker-compose -f docker-compose.dev.yml run --rm node npm run build
 }
