@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   node:
-    image: node:${NODE_VERSION}
+    image: node${DOCKER_NODE_VERSION}
     restart: 'never'
     ports:
       - '3000:3000'

@@ -10,7 +10,7 @@
       "build",
       "ops",
       "docs",
-      "chore",
+      "security",
       "merge",
       "revert"
     ],
@@ -33,6 +33,7 @@
       "fix": "Bug Fixes",
       "perf": "Performance Improvements",
       "merge": "Merged Branches",
+      "security": "Security",
       "breakingChange": "BREAKING CHANGES"
     },
 

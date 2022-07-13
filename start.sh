@@ -3,64 +3,13 @@ set -euo pipefail
 
 source ./source.sh
 
-#doc>    _docIndent_
-#doc>>   Indents and filters the documentation depeding on the number of
-#doc>>   '>' characters used.
-function docIndent() {
-    DOCTYPE=${1-'[a-zA-Z0-9]*'}
-
-    script=$(cat <<'EOD'
-my $dt = $ENV{DOCTYPE};
-while(<>) {
-    if($_ =~ /^#$dt(>+)/) {
-        $_ =~ s/^#$dt//;
-        $_ =~ s/^( *)>\s*/$1  / while($_ =~ /^ *>\s*/);
-        print $_;
-    }
-}
-EOD
-          )
-
-    DOCTYPE="$DOCTYPE" perl -e "$script"
-}
-
-#doc>    _docPretty_
-#doc>>   Use simple markup to underline headlines.
-function docPretty() {
-    perl -pne 's/^( *)_(.+)_/\n$1'"$(tput smul)"'$2'"$(tput rmul)"'/'
-}
-
-#>     _help_
-#>>    Print an overview of all targets.
-function help() {
-    echo "usage: $0 COMMAND"
-    echo ""
-    echo "Commands:"
-    docIndent "" < "$0" | docPretty
-}
-
-#>     _dev_
-#>>    Start the development node server
 function dev() {
     if [ ! -d node_modules ] ; then
-        npm install
+        _npm install
     fi
-    npm run dev
+    docker-compose -f docker-compose.dev.yml run --service-ports --rm node npm run dev
 }
 
-#>     _dev-container_ [COMMAND...]
-#>>    Start the development container with the given command. If no
-#>>    command is given, the development server is started instead.
-function dev_container() {
-    local ARGS=("$@")
-    if ! ((${#ARGS[@]})); then
-        ARGS=("./start.sh" "dev")
-    fi
-    docker-compose -f docker-compose.dev.yml run --service-ports --rm node ${ARGS[*]}
-}
-
-#>     _build_
-#>>    Do a production-ready build
 function build() {
     if [ "$(id -u)" == "0" ] ; then
         echo 'warning: trying to build as root user, falling back to user 1000'
@@ -75,20 +24,66 @@ function build() {
 }
 
 case "${1-}" in
-    "help" )
-        help;;
     "dev" )
         dev;;
-    "dev-container" )
-        dev_container "${@:2}" ;;
     "build" )
         build;;
+    "release" )
+        if [[ -f .npmrc ]] ; then
+            echo "no .npmrc file exists, please create it (//registry.npmjs.org/:_authToken=<token>)"
+            exit 1
+        fi
+
+        if ! _npm whoami ; then
+            echo "you need to be logged into the npm registry before creating a release"
+            exit 1
+        fi
+
+        VERSION=$(git-conventional-commits version)
+        echo "-- creating release for version ${VERSION}"
+
+        echo "-- patching package{,-lock}.json"
+        jq ".version=\"${VERSION}\"" package.json > package.json.tmp && mv package.json.tmp package.json
+        _npm i >/dev/null
+
+        echo "-- building release artifacts"
+        build
+
+        echo "-- creating release commit"
+        git commit -am"build(release): bump project version to ${VERSION}"
+
+        echo "-- creating changelog"
+        git-conventional-commits changelog --release "$VERSION" --file CHANGELOG.md
+
+        echo "-- creating commit for changelog"
+        git commit -am"doc(release): create ${VERSION} change log entry"
+
+        echo "-- tagging version"
+        git tag -a -m"build(release): ${VERSION}" "v${VERSION}"
+
+        echo "-- tagging docker image"
+        docker tag "${DOCKER_IMAGE_NAME}:latest" "${DOCKER_IMAGE_NAME}:${VERSION}"
+
+        read -r -p "-- git push? [Y/n]" response
+        response=${response,,} # tolower
+        if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
+            git push --atomic origin master "v${VERSION}"
+        fi
+
+        read -r -p "-- npm publish? [Y/n]" response
+        response=${response,,} # tolower
+        if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
+            _npm publish
+        fi
+
+        echo "-- RELEASE DONE"
+        ;;
+
     *)
         if [ -z ${1+x} ]; then
             echo "no command given"
         else
             echo "invalid command '${1-}'"
         fi
-        help
         exit 1;;
 esac
