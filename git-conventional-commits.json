@@ -24,7 +24,8 @@
       "feat",
       "fix",
       "perf",
-      "merge"
+      "merge",
+      "security"
     ],
     "includeInvalidCommits": true,
     "commitIgnoreRegexPattern": "^WIP ",
