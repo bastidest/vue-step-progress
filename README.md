@@ -119,17 +119,12 @@ This will setup a new docker container, install npm dependencies and start the d
 Document all user-visible changes in the "Unreleased" section in `CHANGELOG.MD`.
 
 ## Publishing (maintainer only)
-In order to rebuild the files for publishing a new version on npm, execute this command:
-```bash
-./start.sh build
-```
-
 Create a the `.npmrc` file:
 ```
 //registry.npmjs.org/:_authToken=<token>
 ```
 
-Run
-```
-npm publish
+Update package.json version, create tag, create changelog, push, npm publish:
+```bash
+./start.sh publish
 ```
