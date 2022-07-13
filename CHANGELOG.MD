@@ -1,3 +1,9 @@
+## **0.3.8** <sub><sup>2022-07-13 ([b6aa69c...b230632](https://github.com/bastidest/vue-step-progress/compare/b6aa69c...b230632?diff=split))</sup></sub>
+
+### Security
+*  update outdated dev\-dependencies ([a3e6625](https://github.com/bastidest/vue-step-progress/commit/a3e6625))
+
+
 ## [0.3.7] - 2021-08-15
 ### Added
 - Build scripts for developing inside docker containers
