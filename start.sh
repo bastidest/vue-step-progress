@@ -60,6 +60,13 @@ case "${1-}" in
         echo "-- creating changelog"
         git-conventional-commits changelog --release "$VERSION" --file CHANGELOG.MD
 
+        read -r -p "-- changelog ok? [Y/n]" response
+        response=${response,,} # tolower
+        if [[ $response =~ ^(no|n) ]] ; then
+            echo "aborting"
+            exit 1
+        fi
+
         echo "-- creating commit for changelog"
         git commit -am"doc(release): create ${VERSION} change log entry"
 
