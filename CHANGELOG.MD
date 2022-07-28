@@ -1,3 +1,12 @@
+## **1.0.0** <sub><sup>2022-07-28 ([97b9f4d...4a7d486](https://github.com/bastidest/vue-step-progress/compare/97b9f4d...4a7d486?diff=split))</sup></sub>
+
+### Features
+*  add Vue 3 support (thanks @romanmartushev !) ([69bacbf](https://github.com/bastidest/vue-step-progress/commit/69bacbf))
+
+
+### BREAKING CHANGES
+*  drop Vue 2 support ([69bacbf](https://github.com/bastidest/vue-step-progress/commit/69bacbf))
+
 ## **0.3.8** <sub><sup>2022-07-13 ([b6aa69c...b230632](https://github.com/bastidest/vue-step-progress/compare/b6aa69c...b230632?diff=split))</sup></sub>
 
 ### Security
