@@ -8,7 +8,11 @@
 
 Install the plugin with npm:
 ```shell
+# Vue 3.x
 npm install --save vue-step-progress
+
+# Vue 2.x
+npm install --save vue-step-progress@0
 ```
 
 ## Usage
