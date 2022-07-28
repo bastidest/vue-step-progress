@@ -1,3 +1,9 @@
+## **1.0.1** <sub><sup>2022-07-28 ([8ea63f2...1f8f3e2](https://github.com/bastidest/vue-step-progress/compare/8ea63f2...1f8f3e2?diff=split))</sup></sub>
+
+### Bug Fixes
+*  resolve vue as external library in prod build ([8ea63f2](https://github.com/bastidest/vue-step-progress/commit/8ea63f2))
+
+
 ## **1.0.0** <sub><sup>2022-07-28 ([97b9f4d...4a7d486](https://github.com/bastidest/vue-step-progress/compare/97b9f4d...4a7d486?diff=split))</sup></sub>
 
 ### Features
