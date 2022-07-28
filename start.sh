@@ -40,7 +40,11 @@ case "${1-}" in
             exit 1
         fi
 
-        VERSION=$(git-conventional-commits version)
+        if [[ -n "$2" ]] ; then
+            VERSION="$2"
+        else
+            VERSION=$(git-conventional-commits version)
+        fi
         echo "-- creating release for version ${VERSION}"
 
         echo "-- patching package{,-lock}.json"
