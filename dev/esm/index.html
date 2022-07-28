@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/dist-static/main.css">
+  <title>vue-step-progress</title>
+</head>
+<body>
+  <div id="app">
+    <div class="row">
+        <step-progress :steps="steps" :current-step="currentStep" icon-class="fa fa-check" :activeColor="activeColor" :passiveColor="passiveColor" :lineThickness="lineThickness" :activeThickness="activeThickness" :passiveThickness="passiveThickness"></step-progress>
+    </div>
+    <div class="buttons"><button @click="currentStep--">&lt;</button><button @click="currentStep++">></button><button @click="activeColor = &quot;purple&quot; ">Set active color to purple</button><button @click="passiveColor = &quot;pink&quot; ">Set passive color to pink</button>
+        <div style="margin-top:10px"><label> Thickness:</label><input type="text" v-model="lineThickness" /></div>
+        <div style="margin-top:10px"><label> Active Step Thickness</label><input type="text" v-model="activeThickness" /></div>
+        <div style="margin-top:10px"><label> Passive Step Thickness</label><input type="text" v-model="passiveThickness" /></div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="/dist-static/vue-step-progress.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

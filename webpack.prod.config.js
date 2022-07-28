@@ -64,11 +64,8 @@ module.exports = {
       }
     ],
   },
-  resolve: {
-    modules: [
-      'node_modules',
-      'vue'
-    ]
+  externals: {
+    'vue': 'Vue',
   },
   plugins: [
     new VueLoaderPlugin(),

@@ -14,6 +14,9 @@ app.use(webpackMiddleware(webpack(
   publicPath: '/dist/'
 }));
 
+app.use('/esm', express.static(path.resolve(__dirname, 'esm')));
+app.use('/dist-static', express.static(path.resolve(__dirname, '../dist')));
+
 app.get('/', function (req, res) {
   res.render('index');
 });
