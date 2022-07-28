@@ -12,19 +12,19 @@
       :passiveThickness='passiveThickness'
     )
   .buttons
-    button(@click='currentStep--') < 
-    button(@click='currentStep++') > 
-    button(@click='activeColor = "purple" ') Set active color to purple 
-    button(@click='passiveColor = "pink" ') Set passive color to pink 
+    button(@click='currentStep--') &lt;
+    button(@click='currentStep++') >
+    button(@click='activeColor = "purple" ') Set active color to purple
+    button(@click='passiveColor = "pink" ') Set passive color to pink
     div(style='margin-top:10px')
-      label  Thickness:  
+      label  Thickness:
       input(type = 'text' v-model='lineThickness')
     div(style='margin-top:10px')
-      label  Active Step Thickness 
+      label  Active Step Thickness
       input(type = 'text' v-model='activeThickness')
     div(style='margin-top:10px')
-      label  Passive Step Thickness 
-      input(type = 'text' v-model='passiveThickness')   
+      label  Passive Step Thickness
+      input(type = 'text' v-model='passiveThickness')
 </template>
 
 <script>
