@@ -10,6 +10,7 @@
       "build",
       "ops",
       "docs",
+      "doc",
       "security",
       "merge",
       "revert"
