@@ -1,3 +1,9 @@
+## **1.0.2-rc1** <sub><sup>2022-09-26 ([d4627c5...6f2b1f4](https://github.com/bastidest/vue-step-progress/compare/d4627c5...6f2b1f4?diff=split))</sup></sub>
+
+### Bug Fixes
+*  lowercase external Vue import in UMD webpack build ([d4627c5](https://github.com/bastidest/vue-step-progress/commit/d4627c5))
+
+
 ## **1.0.1** <sub><sup>2022-07-28 ([8ea63f2...1f8f3e2](https://github.com/bastidest/vue-step-progress/compare/8ea63f2...1f8f3e2?diff=split))</sup></sub>
 
 ### Bug Fixes
